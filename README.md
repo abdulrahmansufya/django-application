@@ -44,13 +44,6 @@ The API implements the following validations:
 ### 5. Some Validation Errors
 ![Validation Errors](screenshots/validation_error.png)
 
-## Technologies Used
-
-- Python
-- Django
-- Django REST Framework
-- SQLite
-
 ## HTTP Status Codes
 
 | Status Code | Description |
