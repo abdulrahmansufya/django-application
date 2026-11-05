@@ -1,23 +1,22 @@
 from django.urls import path
-from rest_framework.routers import DefaultRouter
 
 from .views import (
-    PostViewSet,
-    UserViewSet,
-    CategoryViewSet,
-    CommentViewSet,
+    create_user,
+    create_category,
+    create_post,
+    create_comment,
     get_posts,
+    generate_post,
+    summarize_post_view
 )
 
-router = DefaultRouter()
-
-router.register('users', UserViewSet)
-router.register('categories', CategoryViewSet)
-router.register('posts', PostViewSet)
-router.register('comments', CommentViewSet)
-
 urlpatterns = [
-    path('posts/get_post/', get_posts, name='get_post'),
-]
+    path('users/', create_user, name='create_user'),
+    path('categories/', create_category, name='create_category'),
+    path('posts/', create_post, name='create_post'),
+    path('comments/', create_comment, name='create_comment'),
 
-urlpatterns += router.urls
+    path('posts/get_post/', get_posts, name='get_posts'),
+    path('posts/generate/', generate_post, name='generate_post'),
+    path('posts/<int:post_id>/summarize/',summarize_post_view,name='summarize_post'),
+]
